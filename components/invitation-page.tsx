@@ -1,12 +1,11 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Plus, Minus, MessageCircle, Play, Pause } from "lucide-react"
+import { Plus, Minus, ArrowRight, Play, Pause } from "lucide-react"
 
-// Replace this URL with the actual welcome audio file URL
-const WELCOME_AUDIO_SRC = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+const WELCOME_AUDIO_SRC = "/audio/audio-web.ogg"
 
-function WelcomeAudioPlayer() {
+function WelcomeAudioPlayer({ autoPlay = false }: { autoPlay?: boolean }) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const progressRef = useRef<HTMLDivElement>(null)
   const [playing, setPlaying] = useState(false)
@@ -35,6 +34,21 @@ function WelcomeAudioPlayer() {
       audio.src = ""
     }
   }, [])
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+    if (autoPlay) {
+      audio.currentTime = 0
+      audio.play().then(() => setPlaying(true)).catch(() => {})
+    } else {
+      audio.pause()
+      audio.currentTime = 0
+      setPlaying(false)
+      setProgress(0)
+      setCurrent(0)
+    }
+  }, [autoPlay])
 
   const toggle = () => {
     const audio = audioRef.current
@@ -125,12 +139,12 @@ const faqs = [
 ]
 
 const navLinks = [
+  { label: "Bienvenida", href: "#welcome" },
   { label: "Invitación", href: "#invitation" },
-  { label: "Contenido", href: "#contenido" },
-  { label: "Experiencia", href: "#experiencia" },
+  { label: "Consultas comunes", href: "#consultas" },
 ]
 
-export function InvitationPage() {
+export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolean; onBack?: () => void }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [activeSection, setActiveSection] = useState("invitation")
   const [scrolled, setScrolled] = useState(false)
@@ -139,8 +153,8 @@ export function InvitationPage() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      const sections = ["invitation", "contenido", "experiencia"]
-      for (const id of sections.reverse()) {
+      const sections = ["invitation", "contenido", "consultas"]
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && window.scrollY >= el.offsetTop - 120) {
           setActiveSection(id)
@@ -157,6 +171,14 @@ export function InvitationPage() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
+  const handleNavClick = (href: string) => {
+    if (href === "#welcome") {
+      onBack?.()
+    } else {
+      scrollTo(href)
+    }
+  }
+
   return (
     <div className="relative min-h-screen bg-background">
       {/* Top nav */}
@@ -164,9 +186,9 @@ export function InvitationPage() {
         className="sticky top-0 z-40 bg-background/90 backdrop-blur-xl transition-all duration-300"
         style={{ borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent" }}
       >
-        <div className="flex items-center justify-between px-8 md:px-12 py-5 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between px-4 md:px-12 py-5 max-w-7xl mx-auto">
           <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
-            Seminar
+            Susana Majul
           </span>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
@@ -174,7 +196,7 @@ export function InvitationPage() {
               return (
                 <button
                   key={link.href}
-                  onClick={() => scrollTo(link.href)}
+                  onClick={() => handleNavClick(link.href)}
                   className={`font-sans text-[11px] uppercase tracking-[0.3em] transition-colors duration-200 pb-0.5 ${
                     isActive
                       ? "text-accent font-medium border-b border-accent"
@@ -190,16 +212,16 @@ export function InvitationPage() {
         </div>
       </nav>
 
-      <main className="px-8 md:px-12 max-w-7xl mx-auto">
+      <main className="px-4 md:px-12 max-w-7xl mx-auto">
 
         {/* ── Hero section ── */}
         <section id="invitation" className="pt-14 md:pt-20 pb-20 md:pb-28">
 
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-10">
-            <span className="w-6 h-px bg-accent" />
-            <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
-              Susana Majul — Bombones para el Alma
+            <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent mb-2.5">
+              <span>Susana Majul</span>
+              <span>— Bombones para el Alma</span>
             </span>
           </div>
 
@@ -234,7 +256,7 @@ export function InvitationPage() {
               </blockquote>
 
               {/* Welcome audio message */}
-              <WelcomeAudioPlayer />
+              <WelcomeAudioPlayer autoPlay={autoPlay} />
             </div>
 
             {/* Right: compact image pair */}
@@ -264,7 +286,7 @@ export function InvitationPage() {
 
         {/* ── Gift / exclusive content section ── */}
         <section id="contenido" className="mb-24 md:mb-32">
-          <div className="bg-sage rounded-3xl p-8 md:p-16 overflow-hidden relative">
+          <div className="bg-primary rounded-3xl p-8 md:p-16 overflow-hidden relative">
             {/* Subtle grain */}
             <div
               className="absolute inset-0 rounded-3xl opacity-[0.04] pointer-events-none"
@@ -317,7 +339,7 @@ export function InvitationPage() {
         <div className="w-full h-px bg-border mb-24 md:mb-32" />
 
         {/* ── FAQ section ── */}
-        <section id="experiencia" className="mb-24 md:mb-32 max-w-3xl mx-auto">
+        <section id="consultas" className="mb-24 md:mb-32 max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-secondary mb-4 block">
               Consultas Comunes
@@ -372,19 +394,19 @@ export function InvitationPage() {
           rel="noopener noreferrer"
           className="group flex items-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-3.5 shadow-[0_8px_40px_rgba(0,31,63,0.22)] hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          <MessageCircle size={14} className="shrink-0" />
           <span className="font-sans text-[10px] uppercase tracking-[0.25em] whitespace-nowrap">
             Quiero inscribirme
           </span>
+          <ArrowRight size={13} className="shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
         </a>
       </div>
 
       {/* Footer */}
-      <footer className="px-8 md:px-12 py-8 border-t border-border/50">
+      <footer className="px-4 md:px-12 py-8 border-t border-border/50">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <span className="font-serif text-sm tracking-[0.15em] text-primary">
-              SEMINAR
+              SUSANA MAJUL
             </span>
             <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
               MMXXVI
