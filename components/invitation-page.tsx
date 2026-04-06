@@ -187,15 +187,9 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         style={{ borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent" }}
       >
         <div className="flex items-center justify-between px-4 md:px-12 py-5 max-w-7xl mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
-            </div>
-            <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
-              Susana Majul
-            </span>
-          </div>
+          <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
+            Susana Majul
+          </span>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "")
@@ -225,7 +219,11 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
 
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-10">
-            <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent mb-2.5">
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
+            </div>
+            <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
               <span>Susana Majul</span>
               <span>— Bombones para el Alma</span>
             </span>
