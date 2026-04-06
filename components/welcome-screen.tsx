@@ -64,10 +64,16 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
 
           {/* Text column */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent mb-5">
-              <span>Susana Majul</span>
-              <span>— Bombones para el Alma</span>
-            </span>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
+              </div>
+              <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
+                <span>Susana Majul</span>
+                <span>— Bombones para el Alma</span>
+              </span>
+            </div>
 
             <h1 className="font-serif text-3xl md:text-5xl lg:text-[3.25rem] xl:text-6xl text-primary leading-[1.08] tracking-tight mb-4 text-balance">
               Seminario Online:{" "}
@@ -83,7 +89,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
 
             <button
               onClick={onEnter}
-              className="group inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-sans text-[11px] uppercase tracking-[0.25em] w-fit hover:bg-accent hover:text-accent-foreground transition-all duration-500 ease-in-out"
+              className="group inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-sans text-[11px] uppercase tracking-[0.25em] w-fit hover:bg-accent hover:text-accent-foreground transition-all duration-500 ease-in-out cursor-pointer"
             >
               Ingresar
             </button>

@@ -83,7 +83,7 @@ function WelcomeAudioPlayer({ autoPlay = false }: { autoPlay?: boolean }) {
       <button
         onClick={toggle}
         aria-label={playing ? "Pausar mensaje de bienvenida" : "Reproducir mensaje de bienvenida"}
-        className="shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+        className="shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors duration-300 cursor-pointer"
       >
         {playing ? <Pause size={14} fill="currentColor" /> : <Play size={14} fill="currentColor" className="translate-x-px" />}
       </button>
@@ -187,9 +187,15 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         style={{ borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent" }}
       >
         <div className="flex items-center justify-between px-4 md:px-12 py-5 max-w-7xl mx-auto">
-          <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
-            Susana Majul
-          </span>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
+            </div>
+            <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
+              Susana Majul
+            </span>
+          </div>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "")
@@ -389,10 +395,10 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
       {/* Inscription FAB — bottom-right */}
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40">
         <a
-          href="https://wa.me/"
+          href="https://wa.me/542944151575"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-3.5 shadow-[0_8px_40px_rgba(0,31,63,0.22)] hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95"
+          className="group flex items-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-3.5 shadow-[0_8px_40px_rgba(0,31,63,0.22)] hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
         >
           <span className="font-sans text-[10px] uppercase tracking-[0.25em] whitespace-nowrap">
             Quiero inscribirme
