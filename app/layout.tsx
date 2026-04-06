@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'Susana Majul – Bombones para el Alma',
     images: [
       {
-        url: '/images/susana-portrait.jpg',
+        url: 'https://invitacion-seminario-demo.vercel.app/images/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Susana Majul – Seminario Online: Liberación de todos los miedos',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
     description:
       'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
-    images: ['/images/susana-portrait.jpg'],
+    images: ['https://invitacion-seminario-demo.vercel.app/images/opengraph.webp'],
   },
 }
 
