@@ -22,6 +22,31 @@ export const metadata: Metadata = {
   description:
     'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
   generator: 'v0.app',
+  metadataBase: new URL('https://invitacion-seminario-demo.vercel.app'),
+  openGraph: {
+    title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
+    description:
+      'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
+    url: 'https://invitacion-seminario-demo.vercel.app',
+    siteName: 'Susana Majul – Bombones para el Alma',
+    images: [
+      {
+        url: '/images/susana-portrait.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Susana Majul – Seminario Online: Liberación de todos los miedos',
+      },
+    ],
+    locale: 'es_AR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
+    description:
+      'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
+    images: ['/images/susana-portrait.jpg'],
+  },
 }
 
 export const viewport = {
