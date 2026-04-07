@@ -90,8 +90,9 @@ function WelcomeAudioPlayer({ autoPlay = false }: { autoPlay?: boolean }) {
 
       {/* Label + bar */}
       <div className="flex-1 min-w-0">
-        <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2 truncate">
-          Mensaje de Bienvenida — Susana Majul
+        <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-muted-foreground mb-2 truncate">
+          <span className="md:hidden">Mensaje de Bienvenida</span>
+          <span className="hidden md:inline">Mensaje de Bienvenida — Susana Majul</span>
         </p>
         {/* Progress track */}
         <div
@@ -143,6 +144,15 @@ const navLinks = [
   { label: "Invitación", href: "#invitation" },
   { label: "Consultas comunes", href: "#consultas" },
 ]
+
+function SectionDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-5 py-7 md:py-9">
+      <div className="flex-1 h-px bg-border" />
+      <span className="font-sans text-[10px] uppercase tracking-[0.45em] text-primary/60 shrink-0">{label}</span>
+    </div>
+  )
+}
 
 export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolean; onBack?: () => void }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -214,18 +224,21 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
 
       <main className="px-4 md:px-12 max-w-7xl mx-auto">
 
+        {/* ── Section separators ── */}
+        <SectionDivider label="INVITACIÓN" />
+
         {/* ── Hero section ── */}
-        <section id="invitation" className="pt-14 md:pt-20 pb-20 md:pb-28">
+        <section id="invitation" className="pb-20 md:pb-28">
 
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+            <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
             </div>
             <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
               <span>Susana Majul</span>
-              <span>— Bombones para el Alma</span>
+              <span>Bombones para el Alma</span>
             </span>
           </div>
 
@@ -285,8 +298,8 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </div>
         </section>
 
-        {/* ── Divider ── */}
-        <div className="w-full h-px bg-border mb-24 md:mb-32" />
+        {/* ── Section separator ── */}
+        <SectionDivider label="CONTENIDO" />
 
         {/* ── Gift / exclusive content section ── */}
         <section id="contenido" className="mb-24 md:mb-32">
@@ -339,8 +352,8 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </div>
         </section>
 
-        {/* ── Divider ── */}
-        <div className="w-full h-px bg-border mb-24 md:mb-32" />
+        {/* ── Section separator ── */}
+        <SectionDivider label="EXPERIENCIA" />
 
         {/* ── FAQ section ── */}
         <section id="consultas" className="mb-24 md:mb-32 max-w-3xl mx-auto">
