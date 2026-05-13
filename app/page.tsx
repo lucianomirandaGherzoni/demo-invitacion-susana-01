@@ -1,20 +1,14 @@
 "use client"
 
-// ─── MODO DEPLOY ────────────────────────────────────────────────────────────
-// Mostrando pantalla "próximamente". Para volver a la invitación completa,
-// comentá la línea de ComingSoon y descomentá el bloque de abajo.
+// ─── MODO COMING SOON (descomentar para ocultar la invitación) ───────────────
 import { ComingSoon } from "@/components/coming-soon"
-
-export default function Page() {
-  return <ComingSoon />
-}
+export default function Page() { return <ComingSoon /> }
 
 // ─── INVITACIÓN COMPLETA (descomentar cuando esté lista) ─────────────────────
-// "use client"
 // import { useState } from "react"
 // import { WelcomeScreen } from "@/components/welcome-screen"
 // import { InvitationPage } from "@/components/invitation-page"
-//
+
 // export default function Page() {
 //   const [entered, setEntered] = useState(false)
 //

@@ -30,8 +30,9 @@ export function ComingSoon() {
         </div>
 
         {/* Brand */}
-        <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
-          Susana Majul · Bombones para el Alma
+        <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent flex flex-col items-center gap-0.5">
+          <span>Susana Majul</span>
+          <span>Bombones para el Alma</span>
         </span>
 
         {/* Separator */}
