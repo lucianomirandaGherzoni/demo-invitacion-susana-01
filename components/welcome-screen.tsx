@@ -40,7 +40,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
           <div className="order-1 lg:order-2 relative">
             <div
               className="relative w-full rounded-2xl overflow-hidden shadow-xl"
-              style={{ height: "clamp(220px, 40vw, 620px)" }}
+              style={{ height: "clamp(200px, 30vw, 480px)" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
