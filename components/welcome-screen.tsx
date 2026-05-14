@@ -46,13 +46,13 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
       </nav>
 
       {/* Hero */}
-      <main className="flex-1 flex items-center justify-center px-6 md:px-12 pt-2 md:pt-12 pb-0 relative z-10">
+      <main className="flex-1 flex items-center justify-center px-6 md:px-12 pt-0 md:pt-12 pb-0 relative z-10">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-center justify-center max-w-7xl mx-auto">
 
           {/* Image column — visible en todos los tamaños */}
           <div className="order-1 lg:order-2 relative flex justify-center" style={fadeStyle(150)}>
             <div
-              className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] w-[min(90vw,340px)] lg:w-[min(36vw,520px)] lg:h-[440px] xl:w-[min(32vw,600px)] xl:h-[540px]"
+              className="relative rounded-2xl overflow-hidden shadow-xl w-[min(90vw,340px)] h-[320px] md:h-auto md:aspect-[4/3] lg:w-[min(36vw,520px)] lg:h-[440px] xl:w-[min(32vw,600px)] xl:h-[540px]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -78,7 +78,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
               </div>
-              <span className="flex flex-col font-sans text-[13px] md:text-[15px] uppercase tracking-[0.4em] text-accent">
+              <span className="flex flex-col font-sans text-[11px] md:text-[15px] uppercase tracking-[0.4em] text-accent">
                 <span>Susana Majul</span>
                 <span>Bombones para el Alma</span>
               </span>

@@ -278,7 +278,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 <span className="text-[0.75em]">para nuevos Contratos de Vida</span>
               </h1>
 
-              <p className="font-sans text-[13px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
+              <p className="font-sans text-[16px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
                 Enseñaremos el método de Apertura de Registros Akásicos y la forma
                 de detectar la información relevante con la cual crearemos los
                 nuevos contratos. Cada ser genera un plan de vida antes de su
@@ -290,7 +290,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               </p>
 
               {/* Horarios por zona horaria */}
-              <div className="mt-4 lg:mt-5 xl:mt-6 grid grid-cols-2 gap-x-6 gap-y-1.5">
+              <div className="mt-4 lg:mt-5 xl:mt-6 grid grid-cols-2 gap-x-6 gap-y-1 lg:gap-y-1.5">
                 {[
                   ["07:00 AM", "Los Ángeles"],
                   ["08:00 AM", "México / Centroamérica"],
@@ -303,7 +303,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 ].map(([time, zone]) => (
                   <div key={zone} className="flex items-baseline gap-2">
                     <span className="font-sans text-[11px] tabular-nums font-medium text-primary shrink-0">{time}</span>
-                    <span className="font-sans text-[10px] text-muted-foreground/70 leading-snug">{zone}</span>
+                    <span className="font-sans text-[10px] lg:text-[13px] text-muted-foreground/70 leading-snug">{zone}</span>
                   </div>
                 ))}
               </div>
@@ -338,7 +338,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         <FadeIn>
           <div className="max-w-xl lg:max-w-2xl mx-auto px-4 py-10 md:py-16 text-center">
             <div className="w-8 h-px bg-border mb-8 mx-auto" />
-            <p className="font-serif text-base md:text-xl lg:text-2xl leading-[1.7] text-primary/60 font-light">
+            <p className="font-serif text-lg md:text-xl lg:text-2xl leading-[1.7] text-primary/60 font-light">
               Cada <em className="italic font-medium">ser</em> antes de su ingreso al planeta genera un{" "}
               <em className="italic font-medium">plan de vida</em> con ciertas condiciones de aprendizaje
               y determinadas vivencias a cumplir para lograr sabiduría y evolución.
@@ -419,7 +419,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         <section className="max-w-5xl mx-auto px-4 md:px-12 pt-4 pb-16 md:pt-6 md:pb-20">
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-primary mb-8">
             <span className="text-accent font-light">+</span> Taller de Regalo:<br />
-            <em className="italic font-light">Activación del Sistema Inmune</em>
+            <em className="italic font-light">Activación del Sistema<br className="md:hidden" /> Inmune</em>
           </h2>
           <div className="flex flex-wrap gap-4">
             {/* Card 1 — TIMO */}
