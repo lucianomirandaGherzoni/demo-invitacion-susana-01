@@ -256,8 +256,8 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         <section id="invitation" className="pb-14 md:pb-20 xl:pb-28 lg:[zoom:0.8] xl:[zoom:1]">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-6 lg:mb-8 xl:mb-10" style={fadeStyle(100)}>
-            <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+          <div className="flex items-center gap-2 mb-6 lg:hidden" style={fadeStyle(100)}>
+            <div className="w-12 h-12 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
             </div>
@@ -268,7 +268,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </div>
 
           {/* Two-column layout — title left, image right, compact */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 xl:gap-12 items-center">
 
             {/* Left: headline + meta + body */}
             <div style={fadeStyle(150)}>
@@ -317,16 +317,16 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               <div className="aspect-[3/4] rounded-2xl overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/imagen-4.webp"
-                  alt="Piedras zen en equilibrio"
+                  src="/images/susi-nueva.webp"
+                  alt="Susana Majul"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[3/4] rounded-2xl overflow-hidden mt-10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/imagen-3.webp"
-                  alt="Susana Majul"
+                  src="/images/imagen-4.webp"
+                  alt="Registros Akásicos"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
@@ -390,16 +390,16 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 <div className="aspect-square rounded-2xl overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/forest-mist.jpg"
-                    alt="Bosque en la neblina"
+                    src="/images/imagen-1.webp"
+                    alt="Registros Akásicos"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="aspect-square rounded-2xl overflow-hidden mt-8">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/herbs-texture.jpg"
-                    alt="Hierbas ceremoniales"
+                    src="/images/imagen-3.webp"
+                    alt="Apertura de Registros"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -519,7 +519,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           <span className="font-serif text-sm tracking-[0.15em] text-primary self-center leading-snug">
             <span className="block">SUSANA MAJUL</span>
             <span className="block md:hidden">BOMBONES PARA EL ALMA</span>
-            <span className="hidden md:inline"> — BOMBONES PARA EL ALMA</span>
+            <span className="hidden md:inline">BOMBONES PARA EL ALMA</span>
           </span>
         </div>
       </footer>

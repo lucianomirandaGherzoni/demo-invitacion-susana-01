@@ -18,27 +18,26 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Susana Majul - MI NUEVO YO',
+  title: 'MI NUEVO YO - SUSANA MAJUL',
   description:
-    'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
-  generator: 'v0.app',
+    'Apertura de Registros Akásicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
   icons: {
     icon: '/images/apple-icon-57x57.png',
     apple: '/images/apple-icon-57x57.png',
   },
-  metadataBase: new URL('https://invitacion-seminario-demo.vercel.app'),
+  metadataBase: new URL('https://invitacion.bombonesparaelalma.com'),
   openGraph: {
-    title: 'Susana Majul - MI NUEVO YO',
+    title: 'MI NUEVO YO - SUSANA MAJUL',
     description:
-      'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
-    url: 'https://invitacion-seminario-demo.vercel.app',
+      'Apertura de Registros Akásicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
+    url: 'https://invitacion.bombonesparaelalma.com',
     siteName: 'Susana Majul – Bombones para el Alma',
     images: [
       {
-        url: 'https://invitacion-seminario-demo.vercel.app/images/opengraph.webp',
+        url: 'https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.png',
         width: 1200,
         height: 630,
-        alt: 'Susana Majul – MI NUEVO YO: Apertura de Registros Akásicos',
+        alt: 'MI NUEVO YO – Susana Majul: Apertura de Registros Akásicos para nuevos Contratos de Vida',
       },
     ],
     locale: 'es_AR',
@@ -46,10 +45,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Susana Majul - MI NUEVO YO',
+    title: 'MI NUEVO YO - SUSANA MAJUL',
     description:
-      'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
-    images: ['https://invitacion-seminario-demo.vercel.app/images/opengraph.webp'],
+      'Apertura de Registros Akásicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
+    images: ['https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.png'],
   },
 }
 

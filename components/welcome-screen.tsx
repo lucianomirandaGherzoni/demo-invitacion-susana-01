@@ -46,19 +46,19 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
       </nav>
 
       {/* Hero */}
-      <main className="flex-1 flex items-start px-6 md:px-12 pt-2 pb-0 md:pt-3 relative z-10">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-center max-w-7xl mx-auto">
+      <main className="flex-1 flex items-center justify-center px-6 md:px-12 pt-2 md:pt-12 pb-0 relative z-10">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-center justify-center max-w-7xl mx-auto">
 
-          {/* Image column — on mobile first, smaller height */}
-          <div className="order-1 lg:order-2 relative flex justify-center lg:hidden" style={fadeStyle(150)}>
+          {/* Image column — visible en todos los tamaños */}
+          <div className="order-1 lg:order-2 relative flex justify-center" style={fadeStyle(150)}>
             <div
-              className="relative rounded-2xl overflow-hidden shadow-xl aspect-square w-[min(90vw,340px)] lg:w-[min(35vw,420px)]"
+              className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] w-[min(90vw,340px)] lg:w-[min(36vw,520px)] lg:h-[440px] xl:w-[min(32vw,600px)] xl:h-[540px]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/imagen-1.webp"
                 alt="Susana Majul, facilitadora del seminario"
-                className="w-full h-full object-cover object-[center_58%]"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-primary/5 mix-blend-multiply" />
             </div>
@@ -73,14 +73,14 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
 
           {/* Text column */}
           <div className="flex flex-col justify-center order-2 lg:order-1" style={fadeStyle(80)}>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-12 h-12 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
               </div>
-              <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
+              <span className="flex flex-col font-sans text-[13px] md:text-[15px] uppercase tracking-[0.4em] text-accent">
                 <span>Susana Majul</span>
-                <span>— Bombones para el Alma</span>
+                <span>Bombones para el Alma</span>
               </span>
             </div>
 
@@ -95,14 +95,14 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
               Maestría del Poder · 21 de Junio de 2026
             </p>
 
-            <p className="font-sans text-[15px] text-muted-foreground max-w-xs mb-4 leading-relaxed">
+            <p className="font-sans text-[15px] text-muted-foreground max-w-xs mb-4 leading-relaxed hidden md:block">
               Apertura de Registros Akásicos<br />
               para nuevos Contratos de Vida.
             </p>
 
             <button
               onClick={onEnter}
-              className="group inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-sans text-[11px] uppercase tracking-[0.25em] w-fit hover:bg-accent hover:text-accent-foreground transition-all duration-500 ease-in-out cursor-pointer"
+              className="group inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-sans text-[11px] uppercase tracking-[0.25em] w-fit hover:bg-accent hover:text-accent-foreground transition-all duration-500 ease-in-out cursor-pointer mt-2"
             >
               Ingresar
             </button>
