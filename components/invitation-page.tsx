@@ -256,10 +256,10 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         <section id="invitation" className="pb-14 md:pb-20 xl:pb-28 lg:[zoom:0.8] xl:[zoom:1]">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-6 lg:hidden" style={fadeStyle(100)}>
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+          <div className="flex items-center gap-2 mb-6" style={fadeStyle(100)}>
+            <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
+              <img src="/images/susi-nueva.webp" alt="Susana Majul" className="w-full h-full object-cover" />
             </div>
             <span className="flex flex-col font-sans text-[10px] uppercase tracking-[0.4em] text-accent">
               <span>Susana Majul</span>
@@ -317,7 +317,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               <div className="aspect-[3/4] rounded-2xl overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/susi-nueva.webp"
+                  src="/images/imagen-3.webp"
                   alt="Susana Majul"
                   className="w-full h-full object-cover"
                 />

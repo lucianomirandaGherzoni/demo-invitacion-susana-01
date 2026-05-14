@@ -74,9 +74,9 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
           {/* Text column */}
           <div className="flex flex-col justify-center order-2 lg:order-1" style={fadeStyle(80)}>
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-12 h-12 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
+              <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
+                <img src="/images/susi-nueva.webp" alt="Susana Majul" className="w-full h-full object-cover" />
               </div>
               <span className="flex flex-col font-sans text-[11px] md:text-[15px] uppercase tracking-[0.4em] text-accent">
                 <span>Susana Majul</span>
