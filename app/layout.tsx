@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Susana Majul – Bombones para el Alma',
     images: [
       {
-        url: 'https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.png',
+        url: 'https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.webp',
         width: 1200,
         height: 630,
         alt: 'MI NUEVO YO – Susana Majul: Apertura de Registros Akásicos para nuevos Contratos de Vida',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: 'MI NUEVO YO - SUSANA MAJUL',
     description:
       'Apertura de Registros Akásicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
-    images: ['https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.png'],
+    images: ['https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.webp'],
   },
 }
 
