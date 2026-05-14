@@ -46,7 +46,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
       </nav>
 
       {/* Hero */}
-      <main className="flex-1 flex items-center justify-center px-6 md:px-12 pt-0 md:pt-12 pb-0 relative z-10">
+      <main className="flex-1 flex items-start md:items-center justify-center px-6 md:px-12 pt-2 md:pt-12 pb-0 relative z-10">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 items-center justify-center max-w-7xl mx-auto">
 
           {/* Image column — visible en todos los tamaños */}
@@ -73,7 +73,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
 
           {/* Text column */}
           <div className="flex flex-col justify-center order-2 lg:order-1" style={fadeStyle(80)}>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-5">
               <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/susi-nueva.webp" alt="Susana Majul" className="w-full h-full object-cover" />
