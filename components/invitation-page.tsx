@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Plus, Minus, ArrowRight, Play, Pause } from "lucide-react"
+import { FadeIn } from "@/components/fade-in"
 
-const WELCOME_AUDIO_SRC = "/audio/audio-web.ogg"
+const WELCOME_AUDIO_SRC = "/audio/audio.mp3"
 
 function WelcomeAudioPlayer({ autoPlay = false }: { autoPlay?: boolean }) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -29,9 +30,18 @@ function WelcomeAudioPlayer({ autoPlay = false }: { autoPlay?: boolean }) {
       audio.currentTime = 0
     })
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        audio.pause()
+        setPlaying(false)
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibility)
+
     return () => {
       audio.pause()
       audio.src = ""
+      document.removeEventListener("visibilitychange", handleVisibility)
     }
   }, [])
 
@@ -142,7 +152,6 @@ const faqs = [
 const navLinks = [
   { label: "Bienvenida", href: "#welcome" },
   { label: "Invitación", href: "#invitation" },
-  { label: "Consultas comunes", href: "#consultas" },
 ]
 
 function SectionDivider({ label }: { label: string }) {
@@ -159,11 +168,17 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
   const [activeSection, setActiveSection] = useState("invitation")
   const [scrolled, setScrolled] = useState(false)
 
+  const fadeStyle = (delay: number): React.CSSProperties => ({
+    opacity: autoPlay ? 1 : 0,
+    transform: autoPlay ? "translateY(0)" : "translateY(20px)",
+    transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+  })
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      const sections = ["invitation", "contenido", "consultas"]
+      const sections = ["invitation", "contenido"]
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -178,7 +193,11 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
 
   const scrollTo = (href: string) => {
     const id = href.replace("#", "")
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+    const el = document.getElementById(id)
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 160
+      window.scrollTo({ top, behavior: "smooth" })
+    }
   }
 
   const handleNavClick = (href: string) => {
@@ -194,12 +213,16 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
       {/* Top nav */}
       <nav
         className="sticky top-0 z-40 bg-background/90 backdrop-blur-xl transition-all duration-300"
-        style={{ borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent" }}
+        style={{ borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent", ...fadeStyle(0) }}
       >
         <div className="flex items-center justify-between px-4 md:px-12 py-5 max-w-7xl mx-auto">
-          <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase">
-            Susana Majul
-          </span>
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo-bombones-para-el-alma.png" alt="Bombones para el Alma" className="h-10 w-10 object-contain self-center -translate-y-[3px]" />
+            <span className="font-serif text-xl tracking-[0.18em] text-primary uppercase self-center leading-none">
+              Susana Majul
+            </span>
+          </div>
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "")
@@ -207,7 +230,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className={`font-sans text-[11px] uppercase tracking-[0.3em] transition-colors duration-200 pb-0.5 ${
+                  className={`font-sans text-[11px] uppercase tracking-[0.3em] transition-colors duration-200 pb-0.5 cursor-pointer ${
                     isActive
                       ? "text-accent font-medium border-b border-accent"
                       : "text-muted-foreground hover:text-primary border-b border-transparent"
@@ -225,13 +248,15 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
       <main className="px-4 md:px-12 max-w-7xl mx-auto">
 
         {/* ── Section separators ── */}
-        <SectionDivider label="INVITACIÓN" />
+        <div style={fadeStyle(60)}>
+          <SectionDivider label="INVITACIÓN" />
+        </div>
 
         {/* ── Hero section ── */}
-        <section id="invitation" className="pb-20 md:pb-28">
+        <section id="invitation" className="pb-14 md:pb-20 xl:pb-28 lg:[zoom:0.8] xl:[zoom:1]">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-10">
+          <div className="flex items-center gap-2 mb-6 lg:mb-8 xl:mb-10" style={fadeStyle(100)}>
             <div className="w-14 h-14 rounded-full overflow-hidden border border-border shadow-sm shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
@@ -243,45 +268,56 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </div>
 
           {/* Two-column layout — title left, image right, compact */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-16 items-center">
 
             {/* Left: headline + meta + body */}
-            <div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-primary mb-6 text-balance">
-                Liberación de <em className="italic font-light">miedos</em>{" "}
-                y sabiduría interna
+            <div style={fadeStyle(150)}>
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl leading-[1.1] tracking-tight text-primary mb-5 xl:mb-6 text-balance">
+                MI NUEVO YO<br />
+                <em className="italic font-light">Apertura de Registros Akásicos</em><br />
+                <span className="text-[0.75em]">para nuevos Contratos de Vida</span>
               </h1>
 
-              <p className="font-sans text-sm uppercase tracking-[0.25em] text-accent mb-6">
-                3 de Mayo de 2026
+              <p className="font-sans text-[13px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
+                Enseñaremos el método de Apertura de Registros Akásicos y la forma
+                de detectar la información relevante con la cual crearemos los
+                nuevos contratos. Cada ser genera un plan de vida antes de su
+                ingreso al planeta, con vivencias para lograr sabiduría y evolución.
               </p>
 
-              <div className="w-10 h-px bg-border mb-6" />
-
-              <p className="font-sans text-[15px] leading-relaxed text-muted-foreground font-light max-w-md">
-                Una travesía espiritual profunda bajo la guía del Arcángel
-                Metatrón. Diseñado para desmantelar las estructuras del miedo
-                y reconectar con la esencia divina que reside en tu interior.
+              <p className="font-sans text-[0.8rem] md:text-sm uppercase tracking-[0.1em] text-accent mb-6 mt-4">
+                Maestría del Poder · 21 de Junio de 2026
               </p>
 
-              {/* Quote callout */}
-              <blockquote className="mt-8 pl-5 border-l-2 border-accent">
-                <p className="font-serif italic text-lg text-primary/70 leading-snug">
-                  &ldquo;El miedo es la ausencia del amor.<br />
-                  El amor es la presencia de todo.&rdquo;
-                </p>
-              </blockquote>
+              {/* Horarios por zona horaria */}
+              <div className="mt-4 lg:mt-5 xl:mt-6 grid grid-cols-2 gap-x-6 gap-y-1.5">
+                {[
+                  ["07:00 AM", "Los Ángeles"],
+                  ["08:00 AM", "México / Centroamérica"],
+                  ["09:00 AM", "Bogotá / Ecuador / Perú"],
+                  ["10:00 AM", "Miami / Venezuela / Santiago"],
+                  ["11:00 AM", "Buenos Aires / Uruguay"],
+                  ["03:00 PM", "Londres"],
+                  ["04:00 PM", "Madrid / París / Roma"],
+                  ["00:00 AM", "Australia (22 Jun)"],
+                ].map(([time, zone]) => (
+                  <div key={zone} className="flex items-baseline gap-2">
+                    <span className="font-sans text-[11px] tabular-nums font-medium text-primary shrink-0">{time}</span>
+                    <span className="font-sans text-[10px] text-muted-foreground/70 leading-snug">{zone}</span>
+                  </div>
+                ))}
+              </div>
 
               {/* Welcome audio message */}
               <WelcomeAudioPlayer autoPlay={autoPlay} />
             </div>
 
             {/* Right: compact image pair */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4" style={fadeStyle(220)}>
               <div className="aspect-[3/4] rounded-2xl overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/zen-stones.jpg"
+                  src="/images/imagen-4.webp"
                   alt="Piedras zen en equilibrio"
                   className="w-full h-full object-cover"
                 />
@@ -289,19 +325,35 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               <div className="aspect-[3/4] rounded-2xl overflow-hidden mt-10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/herbs-texture.jpg"
-                  alt="Hierbas ceremoniales"
-                  className="w-full h-full object-cover"
+                  src="/images/imagen-3.webp"
+                  alt="Susana Majul"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
           </div>
         </section>
 
+        {/* ── Pull quote ── */}
+        <FadeIn>
+          <div className="max-w-xl lg:max-w-2xl mx-auto px-4 py-10 md:py-16 text-center">
+            <div className="w-8 h-px bg-border mb-8 mx-auto" />
+            <p className="font-serif text-base md:text-xl lg:text-2xl leading-[1.7] text-primary/60 font-light">
+              Cada <em className="italic font-medium">ser</em> antes de su ingreso al planeta genera un{" "}
+              <em className="italic font-medium">plan de vida</em> con ciertas condiciones de aprendizaje
+              y determinadas vivencias a cumplir para lograr sabiduría y evolución.
+            </p>
+            <div className="w-8 h-px bg-border mt-8 mx-auto" />
+          </div>
+        </FadeIn>
+
         {/* ── Section separator ── */}
-        <SectionDivider label="CONTENIDO" />
+        <FadeIn>
+          <SectionDivider label="CONTENIDO" />
+        </FadeIn>
 
         {/* ── Gift / exclusive content section ── */}
+        <FadeIn>
         <section id="contenido" className="mb-24 md:mb-32">
           <div className="bg-primary rounded-3xl p-8 md:p-16 overflow-hidden relative">
             {/* Subtle grain */}
@@ -313,20 +365,24 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               }}
             />
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Text */}
               <div>
-                <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-white/70 mb-4 block">
-                  Contenido Exclusivo
-                </span>
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 italic text-white">
-                  + Taller de Regalo: Sanación profunda del sistema digestivo
+                  Los Tres Nuevos Contratos
                 </h2>
-                <p className="font-sans text-white/80 text-base font-light leading-relaxed">
-                  Una masterclass enfocada en liberar memorias dolorosas alojadas
-                  en tu centro de procesamiento emocional, permitiendo una
-                  integración armoniosa de tus experiencias de vida.
+                <p className="font-sans text-white/80 text-base font-light leading-relaxed mb-6">
+                  A través de la Apertura de Registros llevamos conciencia y luz
+                  a todos tus propósitos. En el seminario confeccionaremos:
                 </p>
+                <ul className="space-y-3">
+                  {["Contrato de Longevidad", "Contrato de Relaciones", "Contrato de Conexión Divina"].map((c) => (
+                    <li key={c} className="flex items-center gap-2 font-sans text-white/90 text-sm tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/50 shrink-0" />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Image grid */}
@@ -349,14 +405,50 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
-        {/* ── Section separator ── */}
-        <SectionDivider label="EXPERIENCIA" />
+        </FadeIn>
 
-        {/* ── FAQ section ── */}
-        <section id="consultas" className="mb-24 md:mb-32 max-w-3xl mx-auto">
+        {/* ── Taller de Regalo ── */}
+        <FadeIn delay={100}>
+          <SectionDivider label="INCLUIDO EN TU INSCRIPCIÓN" />
+        </FadeIn>
+        <FadeIn delay={100}>
+        <section className="max-w-5xl mx-auto px-4 md:px-12 pt-4 pb-16 md:pt-6 md:pb-20">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-primary mb-8">
+            <span className="text-accent font-light">+</span> Taller de Regalo:<br />
+            <em className="italic font-light">Activación del Sistema Inmune</em>
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            {/* Card 1 — TIMO */}
+            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                Enfoque y restauración del <strong className="text-primary font-medium">TIMO</strong>
+              </p>
+            </div>
+            {/* Card 2 — Médula Ósea y Sistema Linfático */}
+            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                <strong className="text-primary font-medium">Médula Ósea</strong> y <strong className="text-primary font-medium">Sistema Linfático</strong>
+              </p>
+            </div>
+            {/* Card 3 — Hábitos */}
+            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
+                Sugerencias de <strong className="text-primary font-medium">Hábitos</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+        </FadeIn>
+
+        {/* ── Consultas comunes — desactivado — */}
+        {false && (
+          <>
+            <SectionDivider label="EXPERIENCIA" />
+            <section id="consultas" className="mb-24 md:mb-32 max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-secondary mb-4 block">
               Consultas Comunes
@@ -401,45 +493,34 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
             ))}
           </div>
         </section>
+          </>
+        )}
       </main>
 
       {/* Inscription FAB — bottom-right */}
       <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40">
         <a
-          href="https://wa.me/542944151575"
+          href="https://wa.me/542944151575?text=Hola!%20Me%20interesa%20el%20Seminario%20MI%20NUEVO%20YO%2C%20%C2%BFc%C3%B3mo%20me%20inscribo%3F"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-3 bg-primary text-primary-foreground rounded-full px-6 py-3.5 shadow-[0_8px_40px_rgba(0,31,63,0.22)] hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          className="group flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-6 py-3.5 shadow-[0_8px_40px_rgba(0,31,63,0.22)] hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
         >
           <span className="font-sans text-[10px] uppercase tracking-[0.25em] whitespace-nowrap">
-            Quiero inscribirme
+            Reservar mi lugar
           </span>
-          <ArrowRight size={13} className="shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
         </a>
       </div>
 
       {/* Footer */}
-      <footer className="px-4 md:px-12 py-8 border-t border-border/50">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <span className="font-serif text-sm tracking-[0.15em] text-primary">
-              SUSANA MAJUL
-            </span>
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
-              MMXXVI
-            </span>
-          </div>
-          <div className="flex gap-8">
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
-              Inquiries
-            </span>
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
-              Privacy
-            </span>
-            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
-              Terms
-            </span>
-          </div>
+      <footer className="px-4 md:px-12 py-8 pb-28 md:pb-8 border-t border-border/50">
+        <div className="max-w-7xl mx-auto flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo-bombones-para-el-alma.png" alt="Bombones para el Alma" className="h-10 w-10 object-contain self-center -translate-y-[3px]" />
+          <span className="font-serif text-sm tracking-[0.15em] text-primary self-center leading-snug">
+            <span className="block">SUSANA MAJUL</span>
+            <span className="block md:hidden">BOMBONES PARA EL ALMA</span>
+            <span className="hidden md:inline"> — BOMBONES PARA EL ALMA</span>
+          </span>
         </div>
       </footer>
     </div>

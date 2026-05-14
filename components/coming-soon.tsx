@@ -24,7 +24,7 @@ export function ComingSoon() {
         }}
       >
         {/* Avatar */}
-        <div className="w-12 h-12 rounded-full overflow-hidden border border-border shadow-sm">
+        <div className="w-16 h-16 rounded-full overflow-hidden border border-border shadow-sm">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/avatar.png" alt="Susana Majul" className="w-full h-full object-cover" />
         </div>

@@ -18,15 +18,19 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
+  title: 'Susana Majul - MI NUEVO YO',
   description:
-    'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
+    'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
   generator: 'v0.app',
+  icons: {
+    icon: '/images/apple-icon-57x57.png',
+    apple: '/images/apple-icon-57x57.png',
+  },
   metadataBase: new URL('https://invitacion-seminario-demo.vercel.app'),
   openGraph: {
-    title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
+    title: 'Susana Majul - MI NUEVO YO',
     description:
-      'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
+      'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
     url: 'https://invitacion-seminario-demo.vercel.app',
     siteName: 'Susana Majul – Bombones para el Alma',
     images: [
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
         url: 'https://invitacion-seminario-demo.vercel.app/images/opengraph.webp',
         width: 1200,
         height: 630,
-        alt: 'Susana Majul – Seminario Online: Liberación de todos los miedos',
+        alt: 'Susana Majul – MI NUEVO YO: Apertura de Registros Akásicos',
       },
     ],
     locale: 'es_AR',
@@ -42,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Seminario Online – Liberación de todos los miedos | Susana Majul',
+    title: 'Susana Majul - MI NUEVO YO',
     description:
-      'Un viaje hacia la claridad. Encuentra la paz interior a través de la sabiduría ancestral y la presencia consciente. 3 de Mayo de 2026.',
+      'Apertura de Registros Akásicos para nuevos Contratos de Vida. Maestría del Poder — 21 de Junio de 2026.',
     images: ['https://invitacion-seminario-demo.vercel.app/images/opengraph.webp'],
   },
 }

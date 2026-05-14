@@ -24,9 +24,7 @@ export function MusicPlayer({ autoPlay = false }: MusicPlayerProps) {
     const audio = document.createElement("audio")
     audio.loop = true
     audio.volume = 0.3
-    // Use a reliable ambient/calm track
-    audio.src =
-      "https://www.bensound.com/bensound-music/bensound-relaxing.mp3"
+    audio.src = "/audio/audio.mp3"
     audioRef.current = audio
 
     audio.addEventListener("error", () => {
@@ -34,9 +32,18 @@ export function MusicPlayer({ autoPlay = false }: MusicPlayerProps) {
       console.log("[v0] Audio load error, trying fallback")
     })
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        audio.pause()
+        setIsPlaying(false)
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibility)
+
     return () => {
       audio.pause()
       audio.src = ""
+      document.removeEventListener("visibilitychange", handleVisibility)
     }
   }, [])
 
