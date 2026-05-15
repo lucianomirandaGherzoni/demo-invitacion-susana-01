@@ -274,12 +274,12 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
             <div style={fadeStyle(150)}>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl leading-[1.1] tracking-tight text-primary mb-5 xl:mb-6 text-balance">
                 MI NUEVO YO<br />
-                <em className="italic font-light">Apertura de Registros Akásicos</em><br />
+                <em className="italic font-light">Apertura de Registros Akáshicos</em><br />
                 <span className="text-[0.75em]">para nuevos Contratos de Vida</span>
               </h1>
 
               <p className="font-sans text-[16px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
-                Enseñaremos el método de Apertura de Registros Akásicos y la forma
+                Enseñaremos el método de Apertura de Registros Akáshicos y la forma
                 de detectar la información relevante con la cual crearemos los
                 nuevos contratos. Cada ser genera un plan de vida antes de su
                 ingreso al planeta, con vivencias para lograr sabiduría y evolución.
@@ -326,7 +326,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/imagen-4.webp"
-                  alt="Registros Akásicos"
+                  alt="Registros Akáshicos"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
@@ -391,7 +391,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/imagen-1.webp"
-                    alt="Registros Akásicos"
+                    alt="Registros Akáshicos"
                     className="w-full h-full object-cover"
                   />
                 </div>

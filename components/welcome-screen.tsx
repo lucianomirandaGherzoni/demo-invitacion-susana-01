@@ -96,7 +96,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
             </p>
 
             <p className="font-sans text-[15px] text-muted-foreground max-w-xs mb-4 leading-relaxed hidden md:block">
-              Apertura de Registros Akásicos<br />
+              Apertura de Registros Akáshicos<br />
               para nuevos Contratos de Vida.
             </p>
 
