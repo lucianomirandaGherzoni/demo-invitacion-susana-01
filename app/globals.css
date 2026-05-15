@@ -17,18 +17,18 @@
   --secondary: #4F644E;
   --secondary-foreground: #FFFFFF;
 
-  --accent: #C5B358;
+  --accent: #B8960C;
   --accent-foreground: #1A1200;
 
   --sage: #012040;
   --sage-foreground: #FFFFFF;
 
   --muted: #F0EFED;
-  --muted-foreground: #74777F;
+  --muted-foreground: #2E3040;
 
   --border: #E3E2E0;
   --input: #E3E2E0;
-  --ring: #C5B358;
+  --ring: #B8960C;
 
   --radius: 1rem;
 }

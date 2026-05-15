@@ -281,32 +281,15 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               <p className="font-sans text-[16px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
                 Enseñaremos el método de Apertura de Registros Akáshicos y la forma
                 de detectar la información relevante con la cual crearemos los
-                nuevos contratos. Cada ser genera un plan de vida antes de su
+                nuevos <em className="text-primary font-ligth"><strong>contratos</strong></em>. Cada ser genera un plan de vida antes de su
                 ingreso al planeta, con vivencias para lograr sabiduría y evolución.
               </p>
 
-              <p className="font-sans text-[0.8rem] md:text-sm uppercase tracking-[0.1em] text-accent mb-6 mt-4">
-                Maestría del Poder · 21 de Junio de 2026
+              <p className="font-sans text-[16px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] leading-relaxed text-muted-foreground font-light w-[90%] mb-4">
+                Ahora, con conciencia, se nos permite corregir y/o cambiar las líneas dolorosas en nuestro{" "}
+                <em className="text-primary font-ligth"><strong>plan del alma</strong></em>, resaltando una forma de vida amorosa,
+                sana, abundante y feliz.
               </p>
-
-              {/* Horarios por zona horaria */}
-              <div className="mt-4 lg:mt-5 xl:mt-6 grid grid-cols-2 gap-x-6 gap-y-1 lg:gap-y-1.5">
-                {[
-                  ["07:00 AM", "Los Ángeles"],
-                  ["08:00 AM", "México / Centroamérica"],
-                  ["09:00 AM", "Bogotá / Ecuador / Perú"],
-                  ["10:00 AM", "Miami / Venezuela / Santiago"],
-                  ["11:00 AM", "Buenos Aires / Uruguay"],
-                  ["03:00 PM", "Londres"],
-                  ["04:00 PM", "Madrid / París / Roma"],
-                  ["00:00 AM", "Australia (22 Jun)"],
-                ].map(([time, zone]) => (
-                  <div key={zone} className="flex items-baseline gap-2">
-                    <span className="font-sans text-[11px] tabular-nums font-medium text-primary shrink-0">{time}</span>
-                    <span className="font-sans text-[10px] lg:text-[13px] text-muted-foreground/70 leading-snug">{zone}</span>
-                  </div>
-                ))}
-              </div>
 
               {/* Welcome audio message */}
               <WelcomeAudioPlayer autoPlay={autoPlay} />
@@ -338,10 +321,11 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
         <FadeIn>
           <div className="max-w-xl lg:max-w-2xl mx-auto px-4 py-10 md:py-16 text-center">
             <div className="w-8 h-px bg-border mb-8 mx-auto" />
-            <p className="font-serif text-lg md:text-xl lg:text-2xl leading-[1.7] text-primary/60 font-light">
-              Cada <em className="italic font-medium">ser</em> antes de su ingreso al planeta genera un{" "}
-              <em className="italic font-medium">plan de vida</em> con ciertas condiciones de aprendizaje
-              y determinadas vivencias a cumplir para lograr sabiduría y evolución.
+            <p className="font-serif text-xl md:text-xl lg:text-2xl leading-[1.7] text-primary/85 font-light">
+              En este taller daremos instrucciones claras y precisas para que aprendas a confeccionar{" "}
+              <em className="italic font-medium">tus propios contratos</em> y usaremos tres modelos que serán
+              tu guía futura a cualquier línea de vida que desees modificar.{" "}
+              Tu <em className="italic font-medium">merecimiento</em> será tu brújula interior.
             </p>
             <div className="w-8 h-px bg-border mt-8 mx-auto" />
           </div>
@@ -369,7 +353,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
               {/* Text */}
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 italic text-white">
-                  Los Tres Nuevos Contratos
+                  Modelos de Contratos
                 </h2>
                 <p className="font-sans text-white/80 text-base font-light leading-relaxed mb-6">
                   A través de la Apertura de Registros llevamos conciencia y luz
@@ -423,19 +407,22 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </h2>
           <div className="flex flex-wrap gap-4">
             {/* Card 1 — TIMO */}
-            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+            <div className="w-full md:w-auto border border-accent/50 bg-accent/5 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <span className="text-accent text-lg font-bold leading-none shrink-0">✦</span>
               <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
                 Enfoque y restauración del <strong className="text-primary font-medium">TIMO</strong>
               </p>
             </div>
             {/* Card 2 — Médula Ósea y Sistema Linfático */}
-            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+            <div className="w-full md:w-auto border border-accent/50 bg-accent/5 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <span className="text-accent text-lg font-bold leading-none shrink-0">✦</span>
               <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
                 <strong className="text-primary font-medium">Médula Ósea</strong> y <strong className="text-primary font-medium">Sistema Linfático</strong>
               </p>
             </div>
             {/* Card 3 — Hábitos */}
-            <div className="w-full md:w-auto border border-border/50 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+            <div className="w-full md:w-auto border border-accent/50 bg-accent/5 rounded-2xl px-6 py-6 flex flex-row items-center gap-5">
+              <span className="text-accent text-lg font-bold leading-none shrink-0">✦</span>
               <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
                 Sugerencias de <strong className="text-primary font-medium">Hábitos</strong>
               </p>
@@ -443,6 +430,45 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
           </div>
         </section>
         </FadeIn>
+
+        {/* ── Fecha y Horarios ── */}
+        <FadeIn delay={100}>
+          <SectionDivider label="FECHA Y HORARIO" />
+        </FadeIn>
+        <FadeIn delay={100}>
+        <section className="max-w-5xl mx-auto px-4 md:px-12 pb-16 md:pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+
+            {/* Columna izquierda: fecha */}
+            <div>
+              <p className="font-sans text-[1.2rem] md:text-lg uppercase tracking-[0.02em] text-accent mb-1">
+                Maestría del Poder <br className="md:hidden" /> 21 de Junio de 2026
+              </p>
+            </div>
+
+            {/* Columna derecha: franjas horarias */}
+            <div className="flex flex-col gap-2">
+              {([
+                ["07:00 AM", "Los Ángeles, California"],
+                ["08:00 AM", "México, Costa Rica, Nicaragua, Guatemala y El Salvador"],
+                ["09:00 AM", "Bogotá, Panamá, Ecuador y Perú"],
+                ["10:00 AM", "Miami, Santo Domingo, Venezuela y Santiago de Chile"],
+                ["11:00 AM", "Buenos Aires y Uruguay"],
+                ["03:00 PM", "Londres"],
+                ["04:00 PM", "Madrid, París, Suiza y Roma"],
+                ["10:00 PM", "China"],
+                ["00:00 AM", "Australia (22 Jun)"],
+              ].map(([time, zone]) => (
+                <div key={zone} className="flex items-baseline gap-1">
+                  <span className="font-sans text-[13px] md:text-[15px] lg:text-[15px] tabular-nums font-semibold text-primary w-20 shrink-0">{time}</span>
+                  <span className="font-sans text-[14px] md:text-[16px] lg:text-[15px] text-muted-foreground leading-snug">{zone}</span>
+                </div>
+              )))}
+            </div>   
+          </div>
+        </section>
+        </FadeIn>
+            
 
         {/* ── Consultas comunes — desactivado — */}
         {false && (
