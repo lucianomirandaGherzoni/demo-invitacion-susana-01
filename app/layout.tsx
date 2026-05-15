@@ -21,10 +21,6 @@ export const metadata: Metadata = {
   title: 'MI NUEVO YO - SUSANA MAJUL',
   description:
     'Apertura de Registros Akásicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
-  icons: {
-    icon: '/images/apple-icon-57x57.png',
-    apple: '/images/apple-icon-57x57.png',
-  },
   metadataBase: new URL('https://invitacion.bombonesparaelalma.com'),
   openGraph: {
     title: 'MI NUEVO YO - SUSANA MAJUL',
