@@ -442,7 +442,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
             {/* Columna izquierda: fecha */}
             <div>
               <p className="font-sans text-[1.2rem] md:text-lg uppercase tracking-[0.02em] text-accent mb-1">
-                Maestría del Poder <br className="md:hidden" /> 21 de Junio de 2026
+                Maestría del Poder ·<br className="md:hidden" /> 21 de Junio de 2026
               </p>
             </div>
 
