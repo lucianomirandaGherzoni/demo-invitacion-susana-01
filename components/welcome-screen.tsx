@@ -92,11 +92,11 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
             </h1>
 
             <p className="font-sans text-[0.8rem] md:text-[13px] lg:text-[14px] xl:text-[15px] uppercase tracking-[0.1em] text-accent mb-2">
-              Maestría del Poder · 21 de Junio de 2026
+              Maestría del Poder · 14 de junio de 2026
             </p>
 
             <p className="font-sans text-[15px] text-muted-foreground max-w-xs mb-4 leading-relaxed hidden md:block">
-              Apertura de Registros Akáshicos<br />
+              Apertura de Registros Akásicos<br />
               para nuevos Contratos de Vida.
             </p>
 

@@ -442,7 +442,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
             {/* Columna izquierda: fecha */}
             <div>
               <p className="font-sans text-[1.2rem] md:text-lg uppercase tracking-[0.02em] text-accent mb-1">
-                Maestría del Poder ·<br className="md:hidden" /> 21 de Junio de 2026
+                Maestría del Poder ·<br className="md:hidden" /> 14 de junio de 2026
               </p>
             </div>
 
@@ -457,7 +457,7 @@ export function InvitationPage({ autoPlay = false, onBack }: { autoPlay?: boolea
                 ["03:00 PM", "Londres"],
                 ["04:00 PM", "Madrid, París, Suiza y Roma"],
                 ["10:00 PM", "China"],
-                ["00:00 AM", "Australia (22 Jun)"],
+                ["00:00 AM", "Australia (15 Jun)"],
               ].map(([time, zone]) => (
                 <div key={zone} className="flex items-baseline gap-1">
                   <span className="font-sans text-[13px] md:text-[15px] lg:text-[15px] tabular-nums font-semibold text-primary w-20 shrink-0">{time}</span>

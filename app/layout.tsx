@@ -20,12 +20,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'MI NUEVO YO - SUSANA MAJUL',
   description:
-    'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
+    'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 14 de junio de 2026.',
   metadataBase: new URL('https://invitacion.bombonesparaelalma.com'),
   openGraph: {
     title: 'MI NUEVO YO - SUSANA MAJUL',
     description:
-      'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
+      'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 14 de junio de 2026.',
     url: 'https://invitacion.bombonesparaelalma.com',
     siteName: 'Susana Majul – Bombones para el Alma',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MI NUEVO YO - SUSANA MAJUL',
     description:
-      'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 21 de Junio de 2026.',
+      'Apertura de Registros Akáshicos para nuevos Contratos de Vida. 14 de junio de 2026.',
     images: ['https://invitacion.bombonesparaelalma.com/images/opengraph-mi-nuevo-yo.webp'],
   },
 }
